@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace GaaClub.Models
 {
+    public enum GenderType
+    {
+        Male = 0,
+        Female = 1,
+        None = 2
+    }
+
     public class Member
     {
         [Required]
@@ -19,7 +26,7 @@ namespace GaaClub.Models
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-        public byte Gender { get; set; }
+        public GenderType Gender { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\colin\\source\\repos\\GaaClub\\GaaClub.csproj": {}
+    "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\colin\\source\\repos\\GaaClub\\GaaClub.csproj": {
+    "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\colin\\source\\repos\\GaaClub\\GaaClub.csproj",
+        "projectUniqueName": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
         "projectName": "GaaClub",
-        "projectPath": "C:\\Users\\colin\\source\\repos\\GaaClub\\GaaClub.csproj",
+        "projectPath": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
         "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\colin\\source\\repos\\GaaClub\\obj\\",
+        "outputPath": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

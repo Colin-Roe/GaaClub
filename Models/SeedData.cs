@@ -28,7 +28,7 @@ namespace GaaClub.Models
                         FirstName = "Colin",
                         LastName = "Roe",
                         DateOfBirth = DateTime.Parse("1989-5-10"),
-                        Gender = 1,
+                        Gender = GenderType.Male,
                         Email = "secretary.stuttgart.europe@gaa.ie"
                     },
 
@@ -37,7 +37,7 @@ namespace GaaClub.Models
                         FirstName = "Dave",
                         LastName = "Jones",
                         DateOfBirth = DateTime.Parse("1992-5-10"),
-                        Gender = 1
+                        Gender = GenderType.Male
                     },
 
                     new Member
@@ -45,7 +45,7 @@ namespace GaaClub.Models
                         FirstName = "Alana",
                         LastName = "Henderson",
                         DateOfBirth = DateTime.Parse("1994-5-10"),
-                        Gender = 0
+                        Gender = GenderType.Female
                     },
 
                     new Member
@@ -53,7 +53,7 @@ namespace GaaClub.Models
                         FirstName = "Felix",
                         LastName = "Green",
                         DateOfBirth = DateTime.Parse("1991-6-21"),
-                        Gender = 1,
+                        Gender = GenderType.None,
                         Email = "chairperson.stuttgart.europe@gaa.ie"
                     }
                 );
