@@ -141,8 +141,6 @@ C:\Users\colin\source\repos\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csprojAssemblyReference.cache
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.Manifest.cache
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.xml
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cache
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.AssemblyInfoInputs.cache
@@ -278,3 +276,7 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorTargetAssemblyInfo.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Views.pdb
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csproj.CopyComplete
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\Import.cshtml.g.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\CsvHelper.dll
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cache

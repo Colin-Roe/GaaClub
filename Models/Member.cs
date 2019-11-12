@@ -15,14 +15,19 @@ namespace GaaClub.Models
 
     public class Member
     {
+        public Member() {}
+
         [Required]
-        public int Id { get; set; }
+        public int ID { get; set; }
         [Required(ErrorMessage = "Please Enter First Name")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Please Enter Last Name")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Please Enter Unique User Id")]
+        [Display(Name = "User Id")]
+        public int UserId { get; set; }
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }

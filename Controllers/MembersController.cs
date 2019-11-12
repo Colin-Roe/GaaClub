@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using CsvHelper;
 using GaaClub.Data;
 using GaaClub.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
 {
     public class MembersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         public MembersController(ApplicationDbContext context)
         {
@@ -34,7 +37,7 @@ namespace GaaClub.Controllers
             }
 
             var member = await _context.Member
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (member == null)
             {
                 return NotFound();
@@ -54,7 +57,7 @@ namespace GaaClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,DateOfBirth,Gender,Email")] Member member)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,UserId,DateOfBirth,Gender,Email")] Member member)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +66,59 @@ namespace GaaClub.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(member);
+        }
+
+        // GET: Members/Import
+        public IActionResult Import()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadMembers(List<IFormFile> files)
+        {
+            if (ModelState.IsValid)
+            { 
+                CancellationToken token = cancellationTokenSource.Token;
+                long size = files.Sum(f => f.Length);
+
+                var filePaths = new List<string>();
+                foreach (var formFile in files)
+                {
+                    if (formFile.Length > 0)
+                    {
+                        // full path to file in temp location
+                        var filePath = Path.GetTempFileName();
+                        filePaths.Add(filePath);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await formFile.CopyToAsync(stream, token);
+                        }
+
+                        var sr = new StreamReader(filePath);
+                        var csvReader = new CsvReader(sr);
+                        csvReader.Configuration.HeaderValidated = null;
+                        csvReader.Configuration.MissingFieldFound = null;
+                        var members = csvReader.GetRecords<Member>().ToList();
+
+                        if (members.Count() > 0)
+                        {
+                            foreach (var item in members)
+                            {
+                                var currentMember = _context.Member.Where(m => m.UserId.Equals(item.UserId)).FirstOrDefault();
+                                if (currentMember == null)
+                                {
+                                    _context.Add(item);
+                                    await _context.SaveChangesAsync();
+                                }
+                            }
+                            return RedirectToAction(nameof(Index));
+                        }
+                    }
+                }
+            }
+            return View(files);
         }
 
         // GET: Members/Edit/5
@@ -86,9 +142,9 @@ namespace GaaClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,DateOfBirth,Gender,Email")] Member member)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,UserId,DateOfBirth,Gender,Email")] Member member)
         {
-            if (id != member.Id)
+            if (id != member.ID)
             {
                 return NotFound();
             }
@@ -102,7 +158,7 @@ namespace GaaClub.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MemberExists(member.Id))
+                    if (!MemberExists(member.ID))
                     {
                         return NotFound();
                     }
@@ -125,7 +181,7 @@ namespace GaaClub.Controllers
             }
 
             var member = await _context.Member
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (member == null)
             {
                 return NotFound();
@@ -147,7 +203,7 @@ namespace GaaClub.Controllers
 
         private bool MemberExists(int id)
         {
-            return _context.Member.Any(e => e.Id == id);
+            return _context.Member.Any(e => e.ID == id);
         }
     }
 }
