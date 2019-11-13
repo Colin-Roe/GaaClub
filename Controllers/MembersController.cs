@@ -15,7 +15,6 @@ namespace GaaClub.Controllers
     public class MembersController : Controller
     {
         private readonly ApplicationDbContext _context;
-        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         public MembersController(ApplicationDbContext context)
         {
@@ -79,7 +78,6 @@ namespace GaaClub.Controllers
         {
             if (ModelState.IsValid)
             { 
-                CancellationToken token = cancellationTokenSource.Token;
                 long size = files.Sum(f => f.Length);
 
                 var filePaths = new List<string>();
@@ -93,7 +91,7 @@ namespace GaaClub.Controllers
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
-                            await formFile.CopyToAsync(stream, token);
+                            await formFile.CopyToAsync(stream);
                         }
 
                         var sr = new StreamReader(filePath);
