@@ -19,8 +19,6 @@ namespace GaaClub.Models
 
         [Required]
         public int ID { get; set; }
-        // user ID from AspNetUser table.
-        public string OwnerId { get; set; }
         [Required(ErrorMessage = "Please Enter First Name")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -36,13 +34,6 @@ namespace GaaClub.Models
         public GenderType Gender { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-    }
-
-    public enum ContactStatus
-    {
-        Submitted,
-        Approved,
-        Rejected
     }
 }
 
