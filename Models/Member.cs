@@ -19,6 +19,8 @@ namespace GaaClub.Models
 
         [Required]
         public int ID { get; set; }
+        // user ID from AspNetUser table.
+        public string OwnerID { get; set; }
         [Required(ErrorMessage = "Please Enter First Name")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

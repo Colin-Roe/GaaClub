@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
 {
-    [Authorize]
     public class MembersController : Controller
     {
         private readonly ApplicationDbContext _context;
