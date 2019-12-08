@@ -292,3 +292,8 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csproj.CopyComplete
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.pdb
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Admin\RoleManagement.cshtml.g.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Admin\AddNewRole.cshtml.g.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Admin\EditRole.cshtml.g.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Admin\AddUserToRole.cshtml.g.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Admin\DeleteUserFromRole.cshtml.g.cs
