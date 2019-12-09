@@ -13,10 +13,10 @@ namespace GaaClub.Controllers
     [Authorize(Roles ="Administrator")]
     public class AdminController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AdminController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -45,8 +45,10 @@ namespace GaaClub.Controllers
         {
             if (!ModelState.IsValid) return View(addUserViewModel);
 
-            var user = new IdentityUser()
+            var user = new ApplicationUser()
             {
+                FirstName = addUserViewModel.FirstName,
+                LastName = addUserViewModel.LastName,
                 UserName = addUserViewModel.UserName,
                 Email = addUserViewModel.Email
             };
@@ -72,18 +74,22 @@ namespace GaaClub.Controllers
             if (user == null)
                 return RedirectToAction("UserManagement", _userManager.Users);
 
-            return View(user);
+            var vm = new EditUserViewModel() { Id = user.Id, FirstName = user.FirstName, LastName = user.LastName, UserName = user.UserName, Email = user.Email};
+
+            return View(vm);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditUser(string id, string UserName, string Email)
+        public async Task<IActionResult> EditUser(EditUserViewModel editUserViewModel)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _userManager.FindByIdAsync(editUserViewModel.Id);
 
             if (user != null)
             {
-                user.Email = Email;
-                user.UserName = UserName;
+                user.FirstName = editUserViewModel.FirstName;
+                user.LastName = editUserViewModel.LastName;
+                user.Email = editUserViewModel.Email;
+                user.UserName = editUserViewModel.UserName;
 
                 var result = await _userManager.UpdateAsync(user);
 
@@ -92,7 +98,7 @@ namespace GaaClub.Controllers
 
                 ModelState.AddModelError("", "User not updated, something went wrong.");
 
-                return View(user);
+                return View(editUserViewModel);
             }
 
             return RedirectToAction("UserManagement", _userManager.Users);
@@ -101,7 +107,7 @@ namespace GaaClub.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string userId)
         {
-            IdentityUser user = await _userManager.FindByIdAsync(userId);
+            ApplicationUser user = await _userManager.FindByIdAsync(userId);
 
             if (user != null)
             {

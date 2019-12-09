@@ -2,9 +2,9 @@
 
 namespace GaaClub.ViewModels
 {
-    public class AddUserViewModel
+    public class EditUserViewModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required(ErrorMessage = "Please enter the first name")]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
