@@ -32,6 +32,7 @@ namespace GaaClub.Models
         public int UserId { get; set; }
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
         public GenderType Gender { get; set; }
         [DataType(DataType.EmailAddress)]
