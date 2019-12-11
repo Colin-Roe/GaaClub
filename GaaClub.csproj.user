@@ -14,7 +14,7 @@
     <WebStackScaffolding_DbContextTypeFullName>GaaClub.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <WebStackScaffolding_ViewDialogWidth>643</WebStackScaffolding_ViewDialogWidth>
-    <ShowAllFiles>true</ShowAllFiles>
+    <ShowAllFiles>false</ShowAllFiles>
     <WebStackScaffolding_LayoutPageFile />
   </PropertyGroup>
 </Project>
