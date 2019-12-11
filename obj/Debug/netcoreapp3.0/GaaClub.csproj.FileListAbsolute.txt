@@ -297,3 +297,5 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.pdb
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csprojAssemblyReference.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\package-lock.json
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\package.json

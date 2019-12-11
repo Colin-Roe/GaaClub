@@ -1,0 +1,25 @@
+{
+  "name": "GAAClub",
+  "description": "ASP.NET Core MVC project with npm and webpack front-end configuration.",
+  "repository": "https://github.com/Colin-Roe/GaaClub.git",
+  "license": "MIT",
+  "version": "0.1.0",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-validation": "^1.19.1",
+    "jquery-validation-unobtrusive": "^3.2.11",
+    "bootstrap": "^4.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "css-loader": "^3.3.0",
+    "style-loader": "^1.0.1",
+    "file-loader": "^5.0.2",
+    "url-loader": "^3.0.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
