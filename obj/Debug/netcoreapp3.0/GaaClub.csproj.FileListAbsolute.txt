@@ -287,7 +287,6 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorTargetAssemblyInfo.cache

@@ -1,6 +1,11 @@
 ﻿@using GaaClub.ViewModels;
 @model EditRoleViewModel
 
+@section Scripts
+{
+    <script type="module" src="~/dist/validation.entry.js" defer></script>
+}
+
 <h2>Edit role</h2>
 
 <form asp-controller="Admin" asp-action="EditRole" method="post" class="form-horizontal" role="form">

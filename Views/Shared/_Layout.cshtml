@@ -17,6 +17,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GaaClub</title>
     <script type="module" src="~/dist/site.entry.js" defer></script>
+    <script type="module" src="~/dist/bootstrap_js.entry.js" defer></script>
+    @RenderSection("Scripts", required: false)
+    <link rel="stylesheet" href="~/dist/site.css" />
 </head>
 <body>
     <header>
@@ -59,6 +62,5 @@
             &copy; 2019 - GaaClub - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
