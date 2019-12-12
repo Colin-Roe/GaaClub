@@ -1,6 +1,8 @@
-﻿const glob = require('glob');
+﻿const glob = require('glob-all');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const PurifyCSSPlugin = require('purifycss-webpack');
+const path = require("path");
 
 module.exports = {
     entry: {
@@ -11,7 +13,7 @@ module.exports = {
     },
     output: {
         filename: '[name].entry.js',
-        path: __dirname + '/wwwroot/dist'
+        path: path.join(__dirname) + '/wwwroot/dist'
     },
     devtool: 'source-map',
     mode: 'development',
@@ -25,7 +27,20 @@ module.exports = {
         ]           
     },
     plugins: [
-          new MiniCssExtractPlugin({ filename: "[name].css"}),
-          new PurgecssPlugin({ paths: glob.sync('./Views/**/*.cshtml', { nodir: true })})
-      ]
+        new MiniCssExtractPlugin({ filename: "[name].css"}),
+        new PurgecssPlugin({ paths: glob.sync('./Views/**/*.cshtml', { nodir: true }) }),
+        new PurifyCSSPlugin({
+            paths: glob.sync([
+                path.join(__dirname, 'Views/**/*.cshtml'),
+                path.join(__dirname, 'wwwroot/**/*.js')
+            ]),
+            minimize: false,
+            purifyOptions: {
+                whitelist: []
+            }
+        })
+    ],
+    node: {
+        __dirname: false
+    }
 };
