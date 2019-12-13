@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         filename: '[name].entry.js',
-        path: path.join(__dirname) + '/wwwroot/dist'
+        path: path.join(__dirname, 'wwwroot/dist')
     },
     devtool: 'source-map',
     mode: 'development',
@@ -34,7 +34,7 @@ module.exports = {
                 path.join(__dirname, 'Views/**/*.cshtml'),
                 path.join(__dirname, 'wwwroot/**/*.js')
             ]),
-            minimize: false,
+            minimize: true,
             purifyOptions: {
                 whitelist: []
             }

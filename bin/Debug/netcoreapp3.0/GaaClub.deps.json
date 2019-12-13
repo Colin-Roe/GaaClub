@@ -318,6 +318,11 @@
         "runtime": {
           "GaaClub.dll": {}
         },
+        "resources": {
+          "de/GaaClub.resources.dll": {
+            "locale": "de"
+          }
+        },
         "compile": {
           "GaaClub.dll": {}
         }
