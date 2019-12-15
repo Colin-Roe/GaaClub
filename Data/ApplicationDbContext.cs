@@ -17,8 +17,8 @@ namespace GaaClub.Data
         {
         }
 
-        public DbSet<Member> Member { get; set; }
+        public DbSet<Member> Members { get; set; }
 
-        public DbSet<GaaClub.ViewModels.AddUserViewModel> AddUserViewModel { get; set; }
+        public DbSet<AddUserViewModel> AddUserViewModel { get; set; }
     }
 }

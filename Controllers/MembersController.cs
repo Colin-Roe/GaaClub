@@ -1,30 +1,27 @@
-﻿using CsvHelper;
-using GaaClub.Data;
-using GaaClub.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using GaaClub.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
 {
     public class MembersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IMemberRepository _memberRepository;
 
-        public MembersController(ApplicationDbContext context)
+        public MembersController(IMemberRepository memberRepository)
         {
-            _context = context;
+            _memberRepository = memberRepository;
         }
 
         // GET: Members
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Member.ToListAsync());
+            IEnumerable<Member> members;
+            members = await _memberRepository.Members.ToListAsync();
+            return View(members);
         }
 
         // GET: Members/Details/5
@@ -35,8 +32,7 @@ namespace GaaClub.Controllers
                 return NotFound();
             }
 
-            var member = await _context.Member
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var member = await _memberRepository.GetMemberByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -60,8 +56,7 @@ namespace GaaClub.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(member);
-                await _context.SaveChangesAsync();
+                await _memberRepository.CreateMember(member);
                 return RedirectToAction(nameof(Index));
             }
             return View(member);
@@ -77,44 +72,8 @@ namespace GaaClub.Controllers
         public async Task<IActionResult> UploadMembers(List<IFormFile> files)
         {
             if (ModelState.IsValid)
-            { 
-                long size = files.Sum(f => f.Length);
-
-                var filePaths = new List<string>();
-                foreach (var formFile in files)
-                {
-                    if (formFile.Length > 0)
-                    {
-                        // full path to file in temp location
-                        var filePath = Path.GetTempFileName();
-                        filePaths.Add(filePath);
-
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await formFile.CopyToAsync(stream);
-                        }
-
-                        var sr = new StreamReader(filePath);
-                        var csvReader = new CsvReader(sr);
-                        csvReader.Configuration.HeaderValidated = null;
-                        csvReader.Configuration.MissingFieldFound = null;
-                        var members = csvReader.GetRecords<Member>().ToList();
-
-                        if (members.Count() > 0)
-                        {
-                            foreach (var item in members)
-                            {
-                                var currentMember = _context.Member.Where(m => m.UserId.Equals(item.UserId)).FirstOrDefault();
-                                if (currentMember == null)
-                                {
-                                    _context.Add(item);
-                                    await _context.SaveChangesAsync();
-                                }
-                            }
-                            return RedirectToAction(nameof(Index));
-                        }
-                    }
-                }
+            {
+                await _memberRepository.UploadMembers(files);
             }
             return View(files);
         }
@@ -127,7 +86,7 @@ namespace GaaClub.Controllers
                 return NotFound();
             }
 
-            var member = await _context.Member.FindAsync(id);
+            var member = await _memberRepository.GetMemberByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -151,12 +110,12 @@ namespace GaaClub.Controllers
             {
                 try
                 {
-                    _context.Update(member);
-                    await _context.SaveChangesAsync();
+                    await _memberRepository.UpdateMember(member);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MemberExists(member.ID))
+                    member = await _memberRepository.GetMemberByIdAsync(id);
+                    if (member == null)
                     {
                         return NotFound();
                     }
@@ -178,8 +137,7 @@ namespace GaaClub.Controllers
                 return NotFound();
             }
 
-            var member = await _context.Member
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var member = await _memberRepository.GetMemberByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -193,15 +151,8 @@ namespace GaaClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var member = await _context.Member.FindAsync(id);
-            _context.Member.Remove(member);
-            await _context.SaveChangesAsync();
+            await _memberRepository.DeleteMember(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool MemberExists(int id)
-        {
-            return _context.Member.Any(e => e.ID == id);
         }
     }
 }

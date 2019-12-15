@@ -1,5 +1,6 @@
 using GaaClub.Auth;
 using GaaClub.Data;
+using GaaClub.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,6 +46,8 @@ namespace GaaClub
 
             }).AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTransient<IMemberRepository, MemberRepository>();
 
             // Without this, the user is not redirected to the login page when not signed in
             services.ConfigureApplicationCookie(options =>

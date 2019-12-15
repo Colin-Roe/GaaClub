@@ -122,7 +122,7 @@ namespace GaaClub.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Member");
+                    b.ToTable("Members");
                 });
 
             modelBuilder.Entity("GaaClub.ViewModels.AddUserViewModel", b =>
@@ -137,9 +137,11 @@ namespace GaaClub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")

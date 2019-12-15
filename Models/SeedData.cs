@@ -17,12 +17,12 @@ namespace GaaClub.Models
                     DbContextOptions<ApplicationDbContext>>()))
             {
                 // Look for any movies.
-                if (context.Member.Any())
+                if (context.Members.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Member.AddRange(
+                context.Members.AddRange(
                     new Member
                     {
                         FirstName = "Colin",
