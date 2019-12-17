@@ -138,29 +138,6 @@ C:\Users\colin\source\repos\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\
 C:\Users\colin\source\repos\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\Details.cshtml.g.cs
 C:\Users\colin\source\repos\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\Edit.cshtml.g.cs
 C:\Users\colin\source\repos\GaaClub\obj\Debug\netcoreapp3.0\Razor\Views\Members\Index.cshtml.g.cs
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.Manifest.cache
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.xml
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Login.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Logout.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Register.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.ViewModels.AddUserViewModel.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Index.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Privacy.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Shared._LoginPartial.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Login.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Logout.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Register.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.ViewModels.AddUserViewModel.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Index.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Privacy.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Shared._LoginPartial.de.resources
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csproj.GenerateResource.cache
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cache
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cs
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.AssemblyInfoInputs.cache
-C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.AssemblyInfo.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\package-lock.json
@@ -273,6 +250,29 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\runtime
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.Manifest.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\staticwebassets\GaaClub.StaticWebAssets.xml
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Login.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Logout.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Register.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.ViewModels.AddUserViewModel.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Index.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Privacy.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Shared._LoginPartial.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Login.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Logout.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Areas.Identity.Pages.Account.Register.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.ViewModels.AddUserViewModel.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Index.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Home.Privacy.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.Resources.Views.Shared._LoginPartial.de.resources
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csproj.GenerateResource.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.RazorAssemblyInfo.cs
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.AssemblyInfoInputs.cache
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.AssemblyInfo.cs
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\de\GaaClub.resources.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.TagHelpers.input.cache
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.TagHelpers.output.cache
@@ -315,3 +315,4 @@ C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csproj.CopyComplete
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.dll
 C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.pdb
+C:\Users\colin\Desktop\Code\ASP.NET Core\GaaClub\obj\Debug\netcoreapp3.0\GaaClub.csprojAssemblyReference.cache
