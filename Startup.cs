@@ -73,7 +73,7 @@ namespace GaaClub
             // specify options for the anti forgery
             services.AddAntiforgery(options =>
             {
-                // Set Cookie properties using CookieBuilder properties†.
+                // Set Cookie properties using CookieBuilder propertiesï¿½.
                 options.FormFieldName = "AntiforgeryFieldname";
                 options.HeaderName = "X-CSRF-TOKEN-HEADERNAME";
                 options.SuppressXFrameOptionsHeader = false;
@@ -94,7 +94,7 @@ namespace GaaClub
                     var supportedCultures = new List<CultureInfo>
                     {
                         new CultureInfo("en-GB"),
-                        new CultureInfo("de")                        
+                        new CultureInfo("de")
                     };
 
                     options.DefaultRequestCulture = new RequestCulture("en-GB");

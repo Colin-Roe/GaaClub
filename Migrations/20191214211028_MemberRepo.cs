@@ -8,10 +8,10 @@ namespace GaaClub.Migrations
         {
             migrationBuilder.DropPrimaryKey(
                 name: "PK_Member",
-                table: "Member");
+                table: "Members");
 
             migrationBuilder.RenameTable(
-                name: "Member",
+                name: "Members",
                 newName: "Members");
 
             migrationBuilder.AlterColumn<string>(
@@ -44,7 +44,7 @@ namespace GaaClub.Migrations
 
             migrationBuilder.RenameTable(
                 name: "Members",
-                newName: "Member");
+                newName: "Members");
 
             migrationBuilder.AlterColumn<string>(
                 name: "LastName",

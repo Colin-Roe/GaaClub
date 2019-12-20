@@ -62,7 +62,7 @@ namespace GaaClub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Member",
+                name: "Members",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)

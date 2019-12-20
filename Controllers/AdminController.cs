@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GaaClub.Controllers
 {
-    [Authorize(Roles ="Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -74,7 +74,7 @@ namespace GaaClub.Controllers
             if (user == null)
                 return RedirectToAction("UserManagement", _userManager.Users);
 
-            var vm = new EditUserViewModel() { Id = user.Id, FirstName = user.FirstName, LastName = user.LastName, UserName = user.UserName, Email = user.Email};
+            var vm = new EditUserViewModel() { Id = user.Id, FirstName = user.FirstName, LastName = user.LastName, UserName = user.UserName, Email = user.Email };
 
             return View(vm);
         }
