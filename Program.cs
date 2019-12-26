@@ -35,7 +35,15 @@ namespace GaaClub
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                    .ConfigureLogging((hostingContext, logBuilder) =>
+                    {
+                        //logging.ClearProviders();
+                        //logging.AddDebug();
+                        logBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                        logBuilder.AddConsole();
+                    }
+                    );
                 });
     }
 }

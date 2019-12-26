@@ -1,5 +1,4 @@
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\appsettings.Development.json
-C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\appsettings.json
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\package-lock.json
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\package.json
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\Properties\launchSettings.json
@@ -194,3 +193,5 @@ C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\S
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\System.ComponentModel.Annotations.dll
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\obj\MCD\Debug\netcoreapp3.0\Razor\Views\Home\Error.cshtml.g.cs
+C:\Users\Colin\Documents\Code\ASP.NET Core\GaaClub\bin\MCD\Debug\netcoreapp3.0\appsettingsProduction..json

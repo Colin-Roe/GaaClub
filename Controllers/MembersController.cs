@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using GaaClub.Data;
 using GaaClub.Models;
+using GaaClub.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,16 +10,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace GaaClub.Controllers
 {
     public class MembersController : Controller
     {
         private readonly IMemberRepository _memberRepository;
+        private readonly ILogger<MembersController> _logger;
 
-        public MembersController(IMemberRepository memberRepository)
+        public MembersController(IMemberRepository memberRepository, ILogger<MembersController> logger)
         {
             _memberRepository = memberRepository;
+            _logger = logger;
         }
 
         // GET: Members
@@ -34,12 +38,15 @@ namespace GaaClub.Controllers
         {
             if (id == null)
             {
+                _logger.LogWarning(LoggingEvents.GET_ITEM_NOTFOUND, "GetById({Id}) NOT FOUND", id);
                 return NotFound();
             }
 
+            _logger.LogInformation(LoggingEvents.GET_ITEM, "Getting Member {id}", id);
             var member = await _memberRepository.GetMemberByIdAsync(id);
             if (member == null)
             {
+                _logger.LogWarning(LoggingEvents.GET_ITEM_NOTFOUND, "GetById({Id}) NOT FOUND", id);
                 return NotFound();
             }
 
@@ -61,6 +68,7 @@ namespace GaaClub.Controllers
         {
             if (ModelState.IsValid)
             {
+                _logger.LogWarning(LoggingEvents.CREATE_ITEM, "Creating Member: {member}", member.FirstName + " " + member.LastName);
                 await _memberRepository.CreateMember(member);
                 return RedirectToAction(nameof(Index));
             }
@@ -78,6 +86,7 @@ namespace GaaClub.Controllers
         {
             if (ModelState.IsValid)
             {
+                _logger.LogInformation(LoggingEvents.UPLOAD_MEMBERS, "Uploading Members from file");
                 await _memberRepository.UploadMembers(files);
             }
             return View(files);

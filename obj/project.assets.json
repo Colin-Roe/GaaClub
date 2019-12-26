@@ -8513,6 +8513,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 3.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
+      "Microsoft.Extensions.Logging >= 3.1.0",
+      "Microsoft.Extensions.Logging.Abstractions >= 3.1.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0"
     ]
@@ -8579,6 +8581,14 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "Microsoft.Extensions.Logging": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "[3.1.0, )"
           },
           "Microsoft.Extensions.Logging.Debug": {
             "target": "Package",

@@ -24,6 +24,7 @@ namespace GaaClub.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Loading Home Page");
             return View();
         }
 

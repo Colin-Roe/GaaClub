@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Globalization;
@@ -101,6 +103,7 @@ namespace GaaClub
                     options.SupportedCultures = supportedCultures;
                     options.SupportedUICultures = supportedCultures;
                 });
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -119,7 +122,7 @@ namespace GaaClub
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            //app.UseHealthChecks("/health");
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
