@@ -1,28 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Colin\\Documents\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {}
+    "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Colin\\Documents\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {
+    "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Colin\\Documents\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
+        "projectUniqueName": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
         "projectName": "GaaClub",
-        "projectPath": "C:\\Users\\Colin\\Documents\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
-        "packagesPath": "C:\\Users\\Colin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Colin\\Documents\\Code\\ASP.NET Core\\GaaClub\\obj\\",
+        "projectPath": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\GaaClub.csproj",
+        "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\colin\\Desktop\\Code\\ASP.NET Core\\GaaClub\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Colin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

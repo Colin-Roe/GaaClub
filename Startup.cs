@@ -22,11 +22,13 @@ namespace GaaClub
 {
     public class Startup
     {
+        private readonly IWebHostEnvironment _env;
         private string _gaaAppConnectionString = null;
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -34,7 +36,15 @@ namespace GaaClub
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            _gaaAppConnectionString = Configuration["GaaApp:DevConnectionString"];
+            if (_env.IsDevelopment())
+            {
+                _gaaAppConnectionString = Configuration["GaaApp:DevConnectionString"];
+            }
+            else
+            {
+                _gaaAppConnectionString = Configuration.GetConnectionString("GaaApp");
+            }
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(_gaaAppConnectionString));
 
@@ -107,9 +117,9 @@ namespace GaaClub
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (_env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();

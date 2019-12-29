@@ -161,6 +161,7 @@ namespace GaaClub.Controllers
             return View(addRoleViewModel);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> EditRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
@@ -179,7 +180,7 @@ namespace GaaClub.Controllers
             foreach (var user in _userManager.Users)
             {
                 if (await _userManager.IsInRoleAsync(user, role.Name))
-                    editRoleViewModel.Users.Add(user.UserName);
+                        editRoleViewModel.Users.Add(user.UserName);
             }
 
             return View(editRoleViewModel);
