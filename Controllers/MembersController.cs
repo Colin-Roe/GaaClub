@@ -25,6 +25,7 @@ namespace GaaClub.Controllers
             _logger = logger;
         }
 
+        [AllowAnonymous]
         // GET: Members
         public async Task<IActionResult> Index()
         {
