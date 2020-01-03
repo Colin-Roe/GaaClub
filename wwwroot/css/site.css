@@ -70,3 +70,16 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Header styles
+-------------------------------------------------- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.logo-image {
+    height: 100px;
+    margin-right: 1rem;
+}
