@@ -27,6 +27,24 @@
     <None Include="$(WWWRoot)**" Exclude="$(WWWRoot)dist\**" />
   </ItemGroup>
   
+  <ItemGroup>
+    <Compile Update="Resources\Models.Member.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models.Member.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Models.Member.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models.Member.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Models.Member.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
   <Target Name="NpmInstall" BeforeTargets="Build" Condition=" !Exists('node_modules') ">
     <Exec Command="node --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />

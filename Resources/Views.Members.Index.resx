@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Welcome to the GAA Management System</value>
+  <data name="CreateMember" xml:space="preserve">
+    <value>Create Member</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ImportMembers" xml:space="preserve">
+    <value>Import Members</value>
+  </data>
+  <data name="Members" xml:space="preserve">
+    <value>Members</value>
   </data>
 </root>

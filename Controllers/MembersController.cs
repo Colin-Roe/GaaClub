@@ -65,7 +65,7 @@ namespace GaaClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,UserId,DateOfBirth,Gender,Email")] Member member)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,UserId,DateOfBirth,Gender,Email,Registered")] Member member)
         {
             if (ModelState.IsValid)
             {

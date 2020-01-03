@@ -23,21 +23,24 @@ namespace GaaClub.Models
         // user ID from AspNetUser table.
         public string OwnerID { get; set; }
         [Required(ErrorMessage = "Please Enter First Name")]
-        [Display(Name = "First Name")]
+        [Display(Name = "FirstName", ResourceType = typeof(Resources.Models_Member))]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Please Enter Last Name")]
-        [Display(Name = "Last Name")]
+        [Display(Name = "LastName", ResourceType = typeof(Resources.Models_Member))]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please Enter Unique User Id")]
-        [Display(Name = "User Id")]
+        [Display(Name = "UserId", ResourceType = typeof(Resources.Models_Member))]
         public int UserId { get; set; }
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "DateOfBirth", ResourceType = typeof(Resources.Models_Member))]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DateOfBirth { get; set; }
+        [Display(Name = "Gender", ResourceType = typeof(Resources.Models_Member))]
         public GenderType Gender { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Display(Name = "Registered", ResourceType = typeof(Resources.Models_Member))]
+        public byte Registered { get; set; }
     }
 }
 

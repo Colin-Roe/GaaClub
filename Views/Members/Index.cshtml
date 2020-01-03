@@ -1,10 +1,15 @@
-﻿@model IEnumerable<GaaClub.Models.Member>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model IEnumerable<GaaClub.Models.Member>
 
 @{
     ViewData["Title"] = "Index";
+    ViewData["Members"] = Localizer["Members"];
 }
 
-<h1>Members</h1>
+    <h1>@ViewData["Members"]</h1>
 
 <table class="table">
     <thead>
@@ -26,6 +31,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registered)
             </th>
             @if (User.IsInRole("Administrator"))
             {
@@ -55,12 +63,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
+                <td>
+                    @(item.Registered == 1 ? "Yes" : "No")
+                </td>
                 @if (User.IsInRole("Administrator"))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
                     </td>
                 }
 
@@ -70,7 +81,7 @@
 </table>
 
 @if (User.IsInRole("Administrator"))
-{ 
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-    <a asp-action="Import" class="btn btn-primary">Import Members</a>
+{
+    <a asp-action="Create" class="btn btn-primary">@Localizer["CreateMember"]</a>
+    <a asp-action="Import" class="btn btn-primary">@Localizer["ImportMembers"]</a>
 }
