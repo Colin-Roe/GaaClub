@@ -69,7 +69,7 @@ namespace GaaClub.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.LogWarning(LoggingEvents.CREATE_ITEM, "Creating Member: {member}", member.FirstName + " " + member.LastName);
+                _logger.LogWarning(LoggingEvents.CREATE_ITEM, "Creating Member: {member}", member.FirstName);
                 await _memberRepository.CreateMember(member);
                 return RedirectToAction(nameof(Index));
             }

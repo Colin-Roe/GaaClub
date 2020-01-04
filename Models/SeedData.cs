@@ -16,6 +16,34 @@ namespace GaaClub.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<ApplicationDbContext>>()))
             {
+                // Look for any FeeTypes.
+                if (context.FeeTypes.Any())
+                {
+                    return;
+                }
+
+                var feeTypes = new FeeType[]
+                {
+                    new FeeType
+                    {
+                        Type = "Full",
+                        Description = "Full Membership",
+                        FeeCost = 40
+                    },
+                    new FeeType
+                    {
+                        Type = "Student",
+                        Description = "Full Membership",
+                        FeeCost = 20
+                    }
+                };
+
+                foreach (FeeType f in feeTypes)
+                {
+                    context.FeeTypes.Add(f);
+                }
+                context.SaveChanges();
+
                 // Look for any movies.
                 if (context.Members.Any())
                 {
@@ -31,7 +59,9 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1989-5-10"),
                         Gender = GenderType.Male,
                         Email = "secretary.stuttgart.europe@gaa.ie",
-                        Registered = 0
+                        Registered = 1,
+                        // See The member entity has a foreign key property FeeId which points to the related FeeType entity and it has a FeeType navigation property.
+                        FeeId = feeTypes.Single(f => f.Type == "Full").ID 
                     },
 
                     new Member
@@ -41,7 +71,8 @@ namespace GaaClub.Models
                         UserId = 100001,
                         DateOfBirth = DateTime.Parse("1992-5-10"),
                         Gender = GenderType.Male,
-                        Registered = 0
+                        Registered = 1,
+                        FeeId = feeTypes.Single(f => f.Type == "Full").ID
                     },
 
                     new Member
@@ -51,7 +82,8 @@ namespace GaaClub.Models
                         UserId = 100002,
                         DateOfBirth = DateTime.Parse("1994-5-10"),
                         Gender = GenderType.Female,
-                        Registered = 0
+                        Registered = 1,
+                        FeeId = feeTypes.Single(f => f.Type == "Student").ID
                     },
 
                     new Member

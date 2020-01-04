@@ -60,6 +60,7 @@ namespace GaaClub
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddTransient<IMemberRepository, MemberRepository>();
+            services.AddTransient<IFeeTypeRepository, FeeTypeRepository>();
 
             // Without this, the user is not redirected to the login page when not signed in
             services.ConfigureApplicationCookie(options =>

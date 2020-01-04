@@ -19,6 +19,8 @@ namespace GaaClub.Data
 
         public DbSet<Member> Members { get; set; }
 
+        public DbSet<FeeType> FeeTypes { get; set; }
+
         public DbSet<AddUserViewModel> AddUserViewModel { get; set; }
     }
 }
