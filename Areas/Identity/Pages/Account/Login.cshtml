@@ -40,9 +40,9 @@
                     <button type="submit" class="btn btn-primary">@Localizer["Login"]</button>
                 </div>
                 <div class="form-group">
-                    <p>
+                    @*<p>
                         <a id="forgot-password" asp-page="./ForgotPassword">@Localizer["ForgotPassword"]</a>
-                    </p>
+                    </p>*@
                     <p>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@Localizer["RegisterMessage"]</a>
                     </p>
