@@ -30,10 +30,10 @@
                 @Html.DisplayNameFor(model => model.Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.Registered)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Registered)
+                @Html.DisplayNameFor(model => model.FeeType.Type)
             </th>
             @if (User.IsInRole("Administrator"))
             {
@@ -44,38 +44,38 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @(item.Registered == 1 ? "Yes" : "No")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeType.Type)
+            </td>
+            @if (User.IsInRole("Administrator"))
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
+                    <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfBirth)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @(item.Registered == 1 ? "Yes" : "No")
-                </td>
-                @if (User.IsInRole("Administrator"))
-                {
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
-                        <a asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
-                        <a asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
-                    </td>
-                }
+            }
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>

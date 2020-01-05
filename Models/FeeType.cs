@@ -13,7 +13,8 @@ namespace GaaClub.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Please Enter Type")]
-        [StringLength(20)]        
+        [StringLength(20)]
+        [DisplayName("Fee Type")]
         public string Type { get; set; }
 
         public string Description { get; set; }

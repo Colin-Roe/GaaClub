@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using GaaClub.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace GaaClub.Models
         {
             get
             {
-                return _context.Members;
+                return _context.Members.Include(f => f.FeeType);
             }
         }
 
@@ -43,7 +44,9 @@ namespace GaaClub.Models
 
         public async Task<Member> GetMemberByIdAsync(int? memberId)
         {
-            return await _context.Members.FindAsync(memberId);
+            return await _context.Members
+                .Include(f => f.FeeType)
+                .SingleOrDefaultAsync(x => x.ID == memberId);
         }
 
         public async Task UpdateMember(Member member)
