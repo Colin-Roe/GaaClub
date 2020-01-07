@@ -1,12 +1,16 @@
-﻿@model GaaClub.Models.Member
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model GaaClub.Models.Member
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>@Localizer["Edit"]</h1>
 
-<h4>Member</h4>
+<h4>@Localizer["Member"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -57,30 +61,30 @@
                 <span asp-validation-for="Registered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-2" for="FeeID">Fee Type</label>
-                <div class="col-md-10">
+                <label class="control-label" for="FeeID">Fee Type</label>
+                <div class="form-control dropdown">
                     @Html.DropDownList("FeeID", String.Empty)
                     @Html.ValidationMessageFor(model => model.FeeType.FeeID)
                 </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-primary">Cancel</a>
+                <input type="submit" value=@Localizer["Save"] class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">@Localizer["Cancel"]</a>
             </div>
         </form>
-        <h3>Claims for this user</h3>
+        @*<h3>Claims for this user</h3>*@
         @*<ul>
-            @foreach (var claim in Model.UserClaims)
-            {
-                <li>
-                    @claim
-                </li>
-            }
-        </ul>
-        <a asp-action="ManageClaimsForUser" asp-route-userId="@Model.ID" class="btn btn-primary">Manage Claims</a>*@
+                @foreach (var claim in Model.UserClaims)
+                {
+                    <li>
+                        @claim
+                    </li>
+                }
+            </ul>
+            <a asp-action="ManageClaimsForUser" asp-route-userId="@Model.ID" class="btn btn-primary">Manage Claims</a>*@
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@Localizer["BackToList"]</a>
 </div>
