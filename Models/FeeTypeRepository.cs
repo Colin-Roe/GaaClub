@@ -8,7 +8,6 @@ namespace GaaClub.Models
 {
     public class FeeTypeRepository : IFeeTypeRepository
     {
-        private readonly ApplicationDbContext _context;
 
         public IEnumerable<FeeType> FeeTypes => throw new NotImplementedException();
 

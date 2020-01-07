@@ -106,6 +106,8 @@ namespace GaaClub.Controllers
             {
                 return NotFound();
             }
+
+            ViewBag.FeeID = _memberRepository.PopulateFeeTypeDropDownList(member.FeeID);
             return View(member);
         }
 
@@ -138,7 +140,7 @@ namespace GaaClub.Controllers
                     {
                         throw;
                     }
-                }
+                } 
                 return RedirectToAction(nameof(Index));
             }
             return View(member);

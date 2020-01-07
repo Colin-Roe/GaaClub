@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,7 +51,7 @@ namespace GaaClub.Models
         [Display(Name = "Registered", ResourceType = typeof(Resources.Models_Member))]
         public byte Registered { get; set; }
 
-        public int FeeId { get; set; }
+        public int FeeID { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName
@@ -61,7 +62,8 @@ namespace GaaClub.Models
             }
         }
 
-        public FeeType FeeType { get; set; }
+        [ForeignKey("FeeID")]
+        public virtual FeeType FeeType { get; set; }
     }
 }
 

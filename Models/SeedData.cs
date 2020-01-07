@@ -61,7 +61,7 @@ namespace GaaClub.Models
                         Email = "secretary.stuttgart.europe@gaa.ie",
                         Registered = 1,
                         // See The member entity has a foreign key property FeeId which points to the related FeeType entity and it has a FeeType navigation property.
-                        FeeId = feeTypes.Single(f => f.Type == "Full").ID 
+                        FeeID = feeTypes.Single(f => f.Type == "Full").FeeID
                     },
 
                     new Member
@@ -72,7 +72,7 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1992-5-10"),
                         Gender = GenderType.Male,
                         Registered = 1,
-                        FeeId = feeTypes.Single(f => f.Type == "Full").ID
+                        FeeID = feeTypes.Single(f => f.Type == "Full").FeeID
                     },
 
                     new Member
@@ -83,7 +83,7 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1994-5-10"),
                         Gender = GenderType.Female,
                         Registered = 1,
-                        FeeId = feeTypes.Single(f => f.Type == "Student").ID
+                        FeeID = feeTypes.Single(f => f.Type == "Student").FeeID
                     },
 
                     new Member

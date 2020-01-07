@@ -10,7 +10,8 @@ namespace GaaClub.Models
     public class FeeType
     {
         [Required]
-        public int ID { get; set; }
+        [Key]
+        public int FeeID { get; set; }
 
         [Required(ErrorMessage = "Please Enter Type")]
         [StringLength(20)]
@@ -24,6 +25,6 @@ namespace GaaClub.Models
         [RegularExpression(@"^\$?\d+(\.(\d{2}))?$")]
         public decimal FeeCost { get; set; }
 
-        public ICollection<Member> Members { get; set; }
+        public virtual ICollection<Member> Members { get; set; }
     }
 }

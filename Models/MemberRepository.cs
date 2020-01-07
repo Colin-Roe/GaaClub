@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using GaaClub.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.IO;
@@ -92,6 +93,16 @@ namespace GaaClub.Models
                     }
                 }
             }
+        }
+
+        public SelectList PopulateFeeTypeDropDownList(object selectedFeeType = null)
+        {
+            var feeTypeQuery = from f in _context.FeeTypes
+                               orderby f.Type
+                               select f;
+            var feeSelectList = new SelectList(feeTypeQuery, "FeeID", "Type", selectedFeeType);
+
+            return feeSelectList;
         }
     }
 }
