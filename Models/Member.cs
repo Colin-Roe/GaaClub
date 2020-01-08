@@ -51,7 +51,7 @@ namespace GaaClub.Models
         [Display(Name = "Registered", ResourceType = typeof(Resources.Models_Member))]
         public byte Registered { get; set; }
 
-        public int FeeID { get; set; }
+        public int? FeeID { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName

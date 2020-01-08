@@ -4,14 +4,16 @@ using GaaClub.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GaaClub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200108100813_NewChanges")]
+    partial class NewChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,7 +128,7 @@ namespace GaaClub.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FeeID")
+                    b.Property<int>("FeeID")
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
@@ -323,7 +325,9 @@ namespace GaaClub.Migrations
                 {
                     b.HasOne("GaaClub.Models.FeeType", "FeeType")
                         .WithMany("Members")
-                        .HasForeignKey("FeeID");
+                        .HasForeignKey("FeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
