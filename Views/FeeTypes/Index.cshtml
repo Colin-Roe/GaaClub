@@ -1,14 +1,15 @@
-﻿@model IEnumerable<GaaClub.Models.FeeType>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model IEnumerable<GaaClub.Models.FeeType>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer["Fees"];
 }
 
-<h1>Index</h1>
+<h1>Fees</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -25,23 +26,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FeeCost)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FeeID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FeeID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FeeID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeeCost)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.FeeID">@Localizer["Edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.FeeID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FeeID">@Localizer["Delete"]</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-action="Create" class="btn btn-primary">@Localizer["CreateNewFee"]</a>
+}

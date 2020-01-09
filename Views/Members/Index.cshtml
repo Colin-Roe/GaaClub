@@ -5,11 +5,10 @@
 @model IEnumerable<GaaClub.Models.Member>
 
 @{
-    ViewData["Title"] = "Index";
-    ViewData["Members"] = Localizer["Members"];
+    ViewData["Title"] = Localizer["Members"];
 }
 
-    <h1>@ViewData["Members"]</h1>
+    <h1>@ViewData["Tile"]</h1>
 
 <table class="table">
     <thead>

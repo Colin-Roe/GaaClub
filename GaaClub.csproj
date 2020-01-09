@@ -31,6 +31,11 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Update="Resources\Models.FeeType.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models.FeeType.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Models.Member.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -39,6 +44,13 @@
   </ItemGroup>
   
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Models.FeeType.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models.FeeType.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Models.FeeType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Models.Member.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
