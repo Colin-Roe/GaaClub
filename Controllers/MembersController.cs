@@ -1,16 +1,19 @@
-﻿using CsvHelper;
-using GaaClub.Data;
-using GaaClub.Models;
+﻿using GaaClub.Models;
 using GaaClub.Utilities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Grid;
+using Syncfusion.XlsIO;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace GaaClub.Controllers
 {
@@ -18,10 +21,12 @@ namespace GaaClub.Controllers
     {
         private readonly IMemberRepository _memberRepository;
         private readonly ILogger<MembersController> _logger;
+        private IWebHostEnvironment _webHostEnvironment;
 
-        public MembersController(IMemberRepository memberRepository, ILogger<MembersController> logger)
+        public MembersController(IMemberRepository memberRepository, IWebHostEnvironment webHostEnvironment, ILogger<MembersController> logger)
         {
             _memberRepository = memberRepository;
+            _webHostEnvironment = webHostEnvironment;
             _logger = logger;
         }
 
@@ -170,6 +175,59 @@ namespace GaaClub.Controllers
         {
             await _memberRepository.DeleteMember(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> ExportToExcel()
+        {
+            using(ExcelEngine excelEngine = new ExcelEngine())
+            {
+                IApplication application = excelEngine.Excel;
+                application.DefaultVersion = ExcelVersion.Excel2013;
+                IWorkbook workbook = application.Workbooks.Create(1);
+                IWorksheet worksheet = workbook.Worksheets[0];
+
+                //Import the data to worksheet
+                var members = await _memberRepository.Members.ToListAsync();
+                worksheet.ImportData(new SelectList(members, "FullName", "Registered", "FeeType.Type"), 2, 1, false);
+
+                //Saving the workbook as stream
+                FileStream stream = new FileStream("Members.xlsx", FileMode.Create, FileAccess.ReadWrite);
+                workbook.SaveAs(stream);
+                stream.Dispose();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> ExportToPDF()
+        {
+            // Create a new PDF document.
+            PdfDocument document = new PdfDocument();
+            // Add a page.
+            PdfPage page = document.Pages.Add();
+            //Create a PdfGrid.
+            PdfGrid pdfGrid = new PdfGrid();
+
+            
+            var members = await _memberRepository.Members.ToListAsync();
+            //Assign data source.
+            pdfGrid.DataSource = members;
+            //Draw grid to the page of PDF document.
+            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+            MemoryStream stream = new MemoryStream();
+            document.Save(stream);
+            //If the position is not set to '0' then the PDF will be empty.
+            stream.Position = 0;
+            //Close the document.
+            document.Close(true);
+            //Download the PDF document in the browser
+            //Defining the ContentType for pdf file.
+            string contentType = "application/pdf";
+            //Define the file name.
+            string fileName = "Members.pdf";
+            //Creates a FileContentResult object by using the file contents, content type, and file name.
+            return File(stream, contentType, fileName);
+            
         }
     }
 }

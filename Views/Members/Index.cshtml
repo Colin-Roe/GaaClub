@@ -8,7 +8,7 @@
     ViewData["Title"] = Localizer["Members"];
 }
 
-    <h1>@ViewData["Tile"]</h1>
+<h1>@ViewData["Tile"]</h1>
 
 <table class="table">
     <thead>
@@ -43,38 +43,38 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @(item.Registered == 1 ? "Yes" : "No")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FeeType.Type)
-            </td>
-            @if (User.IsInRole("Administrator"))
-            {
+            <tr>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                    @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
-            }
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @(item.Registered == 1 ? "Yes" : "No")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeeType.Type)
+                </td>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">@Localizer["Details"]</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">@Localizer["Delete"]</a>
+                    </td>
+                }
 
-        </tr>
+            </tr>
         }
     </tbody>
 </table>
@@ -83,4 +83,13 @@
 {
     <a asp-action="Create" class="btn btn-primary">@Localizer["CreateMember"]</a>
     <a asp-action="Import" class="btn btn-primary">@Localizer["ImportMembers"]</a>
+    <li class="dropdown d-inline-block">
+        <a asp-controller="Admin"
+           asp-action="Index"
+           class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Export Members<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a asp-action="ExportToExcel">Excel</a></li>
+            <li><a asp-action="ExportToPDF">PDF</a></li>
+        </ul>
+    </li>
 }
