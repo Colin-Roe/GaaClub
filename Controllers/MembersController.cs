@@ -7,12 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Grid;
-using Syncfusion.XlsIO;
+using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
@@ -179,55 +176,27 @@ namespace GaaClub.Controllers
 
         public async Task<IActionResult> ExportToExcel()
         {
-            using(ExcelEngine excelEngine = new ExcelEngine())
+            using (var package = new ExcelPackage())
+            using(var fileStream = new FileStream("Members.xlsx",FileMode.Create,FileAccess.ReadWrite))
             {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Excel2013;
-                IWorkbook workbook = application.Workbooks.Create(1);
-                IWorksheet worksheet = workbook.Worksheets[0];
-
-                //Import the data to worksheet
                 var members = await _memberRepository.Members.ToListAsync();
-                worksheet.ImportData(new SelectList(members, "FullName", "Registered", "FeeType.Type"), 2, 1, false);
 
-                //Saving the workbook as stream
-                FileStream stream = new FileStream("Members.xlsx", FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(stream);
-                stream.Dispose();
+                var worksheet = package.Workbook.Worksheets.Add("Members");
+                worksheet.Cells["A1"].LoadFromCollection(members);
+                for (int col = 1; col < members.Count + 1; col++)
+                {
+                    worksheet.Column(col).AutoFit();
+                }
+                var data = package.GetAsByteArray();
+                fileStream.Write(data, 0, data.Length);
             }
 
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> ExportToPDF()
-        {
-            // Create a new PDF document.
-            PdfDocument document = new PdfDocument();
-            // Add a page.
-            PdfPage page = document.Pages.Add();
-            //Create a PdfGrid.
-            PdfGrid pdfGrid = new PdfGrid();
-
+        //public async Task<IActionResult> ExportToPDF()
+        //{
             
-            var members = await _memberRepository.Members.ToListAsync();
-            //Assign data source.
-            pdfGrid.DataSource = members;
-            //Draw grid to the page of PDF document.
-            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
-            MemoryStream stream = new MemoryStream();
-            document.Save(stream);
-            //If the position is not set to '0' then the PDF will be empty.
-            stream.Position = 0;
-            //Close the document.
-            document.Close(true);
-            //Download the PDF document in the browser
-            //Defining the ContentType for pdf file.
-            string contentType = "application/pdf";
-            //Define the file name.
-            string fileName = "Members.pdf";
-            //Creates a FileContentResult object by using the file contents, content type, and file name.
-            return File(stream, contentType, fileName);
-            
-        }
+        //}
     }
 }
