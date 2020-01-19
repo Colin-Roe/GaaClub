@@ -206,7 +206,7 @@ namespace GaaClub.Controllers
                         cells.Style.Font.Bold = true;
                     }
 
-                    worksheet.Cells["B1"].LoadFromCollection(members);
+                    worksheet.Cells["A2"].LoadFromCollection(members);
                     for (int col = 1; col < members.Count + 1; col++)
                     {
                         worksheet.Column(col).AutoFit();
