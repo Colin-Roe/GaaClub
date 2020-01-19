@@ -17,6 +17,7 @@ namespace GaaClub.Utilities
         public const int DELETE_ITEM = 1005;
         public const int GET_ITEM_NOTFOUND = 4000;
         public const int UPDATE_ITEM_NOTFOUND = 4001;
+        public const int EXPORT_TO_EXCEL_FAIL = 4002;
     }
 }
 

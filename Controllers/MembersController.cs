@@ -8,8 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
@@ -176,22 +180,45 @@ namespace GaaClub.Controllers
 
         public async Task<IActionResult> ExportToExcel()
         {
-            using (var package = new ExcelPackage())
-            using(var fileStream = new FileStream("Members.xlsx",FileMode.Create,FileAccess.ReadWrite))
+            try
             {
-                var members = await _memberRepository.Members.ToListAsync();
-
-                var worksheet = package.Workbook.Worksheets.Add("Members");
-                worksheet.Cells["A1"].LoadFromCollection(members);
-                for (int col = 1; col < members.Count + 1; col++)
+                using (var package = new ExcelPackage())
                 {
-                    worksheet.Column(col).AutoFit();
-                }
-                var data = package.GetAsByteArray();
-                fileStream.Write(data, 0, data.Length);
-            }
+                    var members = await _memberRepository.Members
+                        .Select(m => new
+                        {
+                            m.FullName,
+                            m.Email,
+                            m.Registered,
+                            m.FeeType.Type
+                        }).ToListAsync();
 
-            return RedirectToAction(nameof(Index));
+                    // create excel file
+                    var worksheet = package.Workbook.Worksheets.Add("Members");
+
+                    worksheet.Cells[1, 1].Value = "Full Name";
+                    worksheet.Cells[1, 2].Value = "Email";
+                    worksheet.Cells[1, 3].Value = "Registered";
+                    worksheet.Cells[1, 4].Value = "Membership Type";
+
+                    using (var cells = worksheet.Cells[1, 1, 1, 4])
+                    {
+                        cells.Style.Font.Bold = true;
+                    }
+
+                    worksheet.Cells["B1"].LoadFromCollection(members);
+                    for (int col = 1; col < members.Count + 1; col++)
+                    {
+                        worksheet.Column(col).AutoFit();
+                    }
+                    return File(package.GetAsByteArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "members.xlsx");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LoggingEvents.EXPORT_TO_EXCEL_FAIL, ex.Message);
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         //public async Task<IActionResult> ExportToPDF()
