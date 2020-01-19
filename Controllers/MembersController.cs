@@ -4,15 +4,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OfficeOpenXml;
-using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,10 +20,9 @@ namespace GaaClub.Controllers
         private readonly ILogger<MembersController> _logger;
         private IWebHostEnvironment _webHostEnvironment;
 
-        public MembersController(IMemberRepository memberRepository, IWebHostEnvironment webHostEnvironment, ILogger<MembersController> logger)
+        public MembersController(IMemberRepository memberRepository, ILogger<MembersController> logger)
         {
             _memberRepository = memberRepository;
-            _webHostEnvironment = webHostEnvironment;
             _logger = logger;
         }
 
@@ -220,10 +215,5 @@ namespace GaaClub.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
-
-        //public async Task<IActionResult> ExportToPDF()
-        //{
-            
-        //}
     }
 }
