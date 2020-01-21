@@ -60,6 +60,12 @@ namespace GaaClub.Models
                         Gender = GenderType.Male,
                         Email = "secretary.stuttgart.europe@gaa.ie",
                         Registered = 1,
+                        Address1 = "Klinikumallee 49",
+                        PostCode = "95445",
+                        City = "Bayreuth",
+                        PhoneNumber = "+49856874585",
+                        IsPlayer = true,
+                        FeePaid = true,
                         // See The member entity has a foreign key property FeeId which points to the related FeeType entity and it has a FeeType navigation property.
                         FeeID = feeTypes.Single(f => f.Type == "Full").FeeID
                     },
@@ -72,6 +78,12 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1992-5-10"),
                         Gender = GenderType.Male,
                         Registered = 1,
+                        Address1 = "Schopenhauerstrasse 16",
+                        PostCode = "75665",
+                        City = "Stuttgart",
+                        PhoneNumber = "+49856874585",
+                        IsPlayer = true,
+                        FeePaid = true,
                         FeeID = feeTypes.Single(f => f.Type == "Full").FeeID
                     },
 
@@ -83,6 +95,12 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1994-5-10"),
                         Gender = GenderType.Female,
                         Registered = 1,
+                        Address1 = "Klinikumallee 51",
+                        PostCode = "95445",
+                        City = "Bayreuth",
+                        PhoneNumber = "+49878554854",
+                        MatchOfficial = true,
+                        FeePaid = true,
                         FeeID = feeTypes.Single(f => f.Type == "Student").FeeID
                     },
 
@@ -94,7 +112,12 @@ namespace GaaClub.Models
                         DateOfBirth = DateTime.Parse("1991-6-21"),
                         Gender = GenderType.None,
                         Email = "chairperson.stuttgart.europe@gaa.ie",
-                        Registered = 0
+                        Registered = 0,
+                        Address1 = "Stadtmitte 23",
+                        PostCode = "95465",
+                        City = "Bayreuth",
+                        PhoneNumber = "+49856874654",
+                        IsPlayer = true
                     }
                 );
                 context.SaveChanges();

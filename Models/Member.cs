@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -51,7 +52,42 @@ namespace GaaClub.Models
         [Display(Name = "Registered", ResourceType = typeof(Resources.Models_Member))]
         public byte Registered { get; set; }
 
+        [Required(ErrorMessage = "An Address must be entered")]
+        [StringLength(50)]
+        public string Address1 { get; set; }
+
+        [StringLength(50)]
+        public string Address2 { get; set; }
+
+        [StringLength(50)]
+        public string Address3 { get; set; }
+
+        [StringLength(50)]
+        public string Address4 { get; set; }
+
+        [Required(ErrorMessage = "A City address must be entered")]
+        [StringLength(20)]
+        public string City { get; set; }
+
+        [Required(ErrorMessage = "An postal code must be entered")]
+        public string PostCode { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [DefaultValue(false)]
+        [Display(Name = "Is player?")]
+        public bool IsPlayer { get; set; }
+
+        [DefaultValue(false)]
+        [Display(Name = "Is match official?")]
+        public bool MatchOfficial { get; set; }
+
         public int? FeeID { get; set; }
+
+        [DefaultValue(false)]
+        [Display(Name = "Fee Paid")]
+        public bool FeePaid { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName

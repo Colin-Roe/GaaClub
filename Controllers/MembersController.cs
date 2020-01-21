@@ -18,7 +18,6 @@ namespace GaaClub.Controllers
     {
         private readonly IMemberRepository _memberRepository;
         private readonly ILogger<MembersController> _logger;
-        private IWebHostEnvironment _webHostEnvironment;
 
         public MembersController(IMemberRepository memberRepository, ILogger<MembersController> logger)
         {
@@ -66,7 +65,7 @@ namespace GaaClub.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,UserId,DateOfBirth,Gender,Email,Registered")] Member member)
+        public async Task<IActionResult> Create(Member member)
         {
             if (ModelState.IsValid)
             {

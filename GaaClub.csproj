@@ -32,6 +32,11 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Compile Remove="Migrations\20200121151036_UpdateMember.cs" />
+    <Compile Remove="Migrations\20200121151036_UpdateMember.Designer.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Compile Update="Resources\Models.FeeType.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
