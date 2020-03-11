@@ -73,15 +73,15 @@ namespace GaaClub
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddControllers(config =>
-            {
-                // using Microsoft.AspNetCore.Mvc.Authorization;
-                // using Microsoft.AspNetCore.Authorization;
-                var policy = new AuthorizationPolicyBuilder()
-                                 .RequireAuthenticatedUser()
-                                 .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            });
+            //services.AddControllers(config =>
+            //{
+            //    // using Microsoft.AspNetCore.Mvc.Authorization;
+            //    // using Microsoft.AspNetCore.Authorization;
+            //    var policy = new AuthorizationPolicyBuilder()
+            //                     .RequireAuthenticatedUser()
+            //                     .Build();
+            //    config.Filters.Add(new AuthorizeFilter(policy));
+            //});
 
             // specify options for the anti forgery
             services.AddAntiforgery(options =>

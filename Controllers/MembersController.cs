@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace GaaClub.Controllers
 {
+    [Authorize(Roles = "Administrator,Secretary")]
     public class MembersController : Controller
     {
         private readonly IMemberRepository _memberRepository;
@@ -25,7 +26,6 @@ namespace GaaClub.Controllers
             _logger = logger;
         }
 
-        [AllowAnonymous]
         // GET: Members
         public async Task<IActionResult> Index()
         {
@@ -57,6 +57,7 @@ namespace GaaClub.Controllers
         // GET: Members/Create
         public IActionResult Create()
         {
+            ViewBag.FeeID = _memberRepository.PopulateFeeTypeDropDownList();
             return View();
         }
 
@@ -143,7 +144,10 @@ namespace GaaClub.Controllers
                 } 
                 return RedirectToAction(nameof(Index));
             }
-            return View(member);
+            else
+            {
+                return View(member);
+            }
         }
 
         // GET: Members/Delete/5

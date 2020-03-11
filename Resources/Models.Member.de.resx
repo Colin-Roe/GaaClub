@@ -135,7 +135,4 @@
   <data name="Registered" xml:space="preserve">
     <value>Registriert</value>
   </data>
-  <data name="UserId" xml:space="preserve">
-    <value>Nutzer-Id</value>
-  </data>
 </root>

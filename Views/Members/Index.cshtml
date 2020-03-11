@@ -20,9 +20,6 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.DateOfBirth)
             </th>
             <th>
@@ -51,9 +48,6 @@
                     @Html.DisplayFor(modelItem => item.LastName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserId)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.DateOfBirth)
                 </td>
                 <td>
@@ -65,7 +59,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.FeeType.Type)
                 </td>
-                @if (User.IsInRole("Administrator"))
+                @if (User.IsInRole("Administrator") || User.IsInRole("Secretary"))
                 {
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.ID">@Localizer["Edit"]</a> |
@@ -79,7 +73,7 @@
     </tbody>
 </table>
 
-@if (User.IsInRole("Administrator"))
+@if (User.IsInRole("Administrator") || User.IsInRole("Secretary"))
 {
     <a asp-action="Create" class="btn btn-primary">@Localizer["CreateMember"]</a>
     <a asp-action="Import" class="btn btn-primary">@Localizer["ImportMembers"]</a>

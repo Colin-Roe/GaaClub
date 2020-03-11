@@ -12,10 +12,10 @@
 
 <h4>@Localizer["Member"]</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-4">
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -26,11 +26,6 @@
                 <label asp-for="LastName" class="control-label"></label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" readonly />
-                <span asp-validation-for="UserId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
@@ -52,6 +47,26 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+            
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            
+
+            @*<h3>Claims for this user</h3>*@
+            @*<ul>
+                    @foreach (var claim in Model.UserClaims)
+                    {
+                        <li>
+                            @claim
+                        </li>
+                    }
+                </ul>
+                <a asp-action="ManageClaimsForUser" asp-route-userId="@Model.ID" class="btn btn-primary">Manage Claims</a>*@
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Address1" class="control-label"></label>
                 <input asp-for="Address1" class="form-control" />
@@ -82,20 +97,17 @@
                 <input asp-for="PostCode" class="form-control" />
                 <span asp-validation-for="PostCode" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="col-md-4">
+            <div class="form-group radio">
                 <label asp-for="IsPlayer" class="control-label"></label>
-                <input asp-for="IsPlayer" class="form-control" type="radio" value="false" />
-                <input asp-for="IsPlayer" class="form-control" type="radio" value="true" />
+                <label><input asp-for="IsPlayer" type="radio" value="false" /> No</label>
+                <label><input asp-for="IsPlayer" type="radio" value="true" /> Yes</label>
             </div>
             <div class="form-group">
                 <label asp-for="MatchOfficial" class="control-label"></label>
-                <input asp-for="MatchOfficial" class="form-control" type="radio" value="false" />
-                <input asp-for="MatchOfficial" class="form-control" type="radio" value="true" />
+                <label><input asp-for="MatchOfficial" type="radio" value="false" /> Yes</label>
+                <input asp-for="MatchOfficial" type="radio" value="true" />
             </div>
             <div class="form-group">
                 <label asp-for="Registered" class="control-label"></label>
@@ -107,34 +119,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="FeePaid" class="control-label"></label>
-                <input asp-for="FeePaid" class="form-control" type="radio" value="false" />
-                <input asp-for="FeePaid" class="form-control" type="radio" value="true" />
+                <label><input asp-for="FeePaid" type="radio" value="false" /> No</label>
+                <label><input asp-for="FeePaid" type="radio" value="true" /> Yes</label>
             </div>
             <div class="form-group">
                 <label class="control-label" for="FeeID">Fee Type</label>
-                <div class="form-control dropdown">
-                    @Html.DropDownList("FeeID", String.Empty)
-                    @Html.ValidationMessageFor(model => model.FeeType.FeeID)
-                </div>
+                <select asp-for="FeeID" class="form-control" asp-items="ViewBag.FeeID">
+                    <option value="">Select Fee Type</option>
+                </select>
+                <span asp-validation-for="FeeID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value=@Localizer["Save"] class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-primary">@Localizer["Cancel"]</a>
             </div>
-        </form>
-        @*<h3>Claims for this user</h3>*@
-        @*<ul>
-                @foreach (var claim in Model.UserClaims)
-                {
-                    <li>
-                        @claim
-                    </li>
-                }
-            </ul>
-            <a asp-action="ManageClaimsForUser" asp-route-userId="@Model.ID" class="btn btn-primary">Manage Claims</a>*@
+        </div>
     </div>
-</div>
-
+</form>
 <div>
     <a asp-action="Index">@Localizer["BackToList"]</a>
 </div>

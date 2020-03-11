@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GaaClub.Models
 {
@@ -33,10 +29,6 @@ namespace GaaClub.Models
         [Required(ErrorMessage = "Please Enter Last Name")]
         [Display(Name = "LastName", ResourceType = typeof(Resources.Models_Member))]
         public string LastName { get; set; }
-
-        [Required(ErrorMessage = "Please Enter Unique User Id")]
-        [Display(Name = "UserId", ResourceType = typeof(Resources.Models_Member))]
-        public int UserId { get; set; }
 
         [Display(Name = "DateOfBirth", ResourceType = typeof(Resources.Models_Member))]
         [DataType(DataType.Date)]
@@ -70,9 +62,11 @@ namespace GaaClub.Models
         public string City { get; set; }
 
         [Required(ErrorMessage = "An postal code must be entered")]
+        [Display(Name = "Post Code")]
         public string PostCode { get; set; }
 
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         [DefaultValue(false)]

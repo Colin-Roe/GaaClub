@@ -13,143 +13,135 @@
 <h4>Member</h4>
 <hr />
 <div class="row">
-    <div class="col-sm">
+    <div class="col-md-4">
         <div class="flex-container flex-column">
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">Name</div>
-                <div class="col-sm-7">@Html.DisplayFor(model => model.FullName)</div>
+                <div class="col-md-4 font-weight-bold">Name</div>
+                <div class="col-md-8">@Html.DisplayFor(model => model.FullName)</div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
-                    @Html.DisplayNameFor(model => model.UserId)
-                </div>
-                <div class="col-sm-7">
-                    @Html.DisplayFor(model => model.UserId)
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Gender)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Gender)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.PhoneNumber)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.PhoneNumber)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.DateOfBirth)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.DateOfBirth)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Email)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Email)
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm">
+    <div class="col-md-4">
         <div class="flex-container flex-column">
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Address1)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Address1)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Address2)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Address2)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Address3)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Address3)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Address4)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.Address4)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.City)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.City)
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.PostCode)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Html.DisplayFor(model => model.PostCode)
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-sm">
+    <div class="col-md-4">
         <div class="flex-container flex-column">
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.Registered)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Model.Registered.YesNo()
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.FeePaid)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Model.FeePaid.YesNo()
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.IsPlayer)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Model.IsPlayer.YesNo()
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">
+                <div class="col-md-4 font-weight-bold">
                     @Html.DisplayNameFor(model => model.MatchOfficial)
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-8">
                     @Model.MatchOfficial.YesNo()
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-5 font-weight-bold">Membership</div>
-                <div class="col-sm-7">@Html.DisplayFor(model => model.FeeType.Type)</div>
+                <div class="col-md-4 font-weight-bold">Membership</div>
+                <div class="col-md-8">@Html.DisplayFor(model => model.FeeType.Type)</div>
             </div>
         </div>
     </div>

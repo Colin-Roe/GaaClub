@@ -104,14 +104,5 @@ namespace GaaClub.Resources {
                 return ResourceManager.GetString("Registered", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserId.
-        /// </summary>
-        public static string UserId {
-            get {
-                return ResourceManager.GetString("UserId", resourceCulture);
-            }
-        }
     }
 }

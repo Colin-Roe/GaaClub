@@ -84,7 +84,7 @@ namespace GaaClub.Models
                     {
                         foreach (var item in members)
                         {
-                            var currentMember = _context.Members.FirstOrDefault(m => m.UserId == item.UserId);
+                            var currentMember = _context.Members.FirstOrDefault(m => m.ID == item.ID);
                             if (currentMember == null)
                             {
                                 await CreateMember(item);
